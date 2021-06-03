@@ -27,13 +27,6 @@ jobs:
   deploy:
     runs-on: [self-hosted, linux]
     needs: [package]
-    steps:  
-      - uses: chrnorm/deployment-action@releases/v1
-        name: Create GitHub deployment
-        id: deployment
-        with:
-          target_url: http://my-app-url.com
-          environment: production
-    
+    steps:      
       - name: Deploy project
         run: mvn tomcat7:run
