@@ -2,11 +2,6 @@ name: Pipeline_2048
 on: [push]
 jobs:
   build:
-      runs-on: [self-hosted, linux]
-      steps:
-          - uses: .m2/repository
-          - name: Setup Java
-            uses: actions/setup-java@v2
-            with:
-              java-version: 11
-          - run: mvn compile
+    runs-on: [self-hosted, linux]
+    steps:
+      - run: mvn compile
