@@ -27,6 +27,12 @@ jobs:
   deploy:
     runs-on: [self-hosted, linux]
     needs: [package]
-    steps:      
+    steps:  
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          target_url: http://my-app-url.com
+    
       - name: Deploy project
-        run: docker run --rm -d --name tomcat -p 8080:8080 game2048
+        run: mvn tomcat7:run
