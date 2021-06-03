@@ -14,12 +14,19 @@ jobs:
     runs-on: [self-hosted, linux]
     needs: [build]
     steps:      
-      - name: Compile project
+      - name: Test project
         run: mvn test
         
   package:
     runs-on: [self-hosted, linux]
     needs: [build, test]
     steps:      
-      - name: Compile project
+      - name: Create project
         run: mvn package
+        
+  deploy:
+    runs-on: [self-hosted, linux]
+    needs: [package]
+    steps:      
+      - name: Deploy project
+        run: docker run --rm -d --name tomcat -p 8080:8080 game2048
