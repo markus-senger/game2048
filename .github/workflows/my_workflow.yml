@@ -2,7 +2,7 @@ name: Pipeline_2048
 on: [push]
 jobs:
   build:
-    runs-on: [self-hosted, linux]
+    runs-on: self-hosted
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
@@ -11,21 +11,21 @@ jobs:
         run: mvn compile
         
   test:
-    runs-on: [self-hosted, linux]
+    runs-on: self-hosted
     needs: [build]
     steps:      
       - name: Test project
         run: mvn test
         
   package:
-    runs-on: [self-hosted, linux]
+    runs-on: self-hosted
     needs: [build, test]
     steps:      
       - name: Create project
         run: mvn package
         
   deploy:
-    runs-on: [self-hosted, linux]
+    runs-on: self-hosted
     needs: [package]
     steps:      
       - name: Deploy project
