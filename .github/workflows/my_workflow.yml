@@ -32,7 +32,9 @@ jobs:
         name: Create GitHub deployment
         id: deployment
         with:
+          token: "${{ github.token }}"
           target_url: http://my-app-url.com
+          environment: production
     
       - name: Deploy project
         run: mvn tomcat7:run
