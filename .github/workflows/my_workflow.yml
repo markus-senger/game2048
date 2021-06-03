@@ -16,3 +16,10 @@ jobs:
     steps:      
       - name: Compile project
         run: mvn test
+        
+  package:
+    runs-on: [self-hosted, linux]
+    needs: build
+    steps:      
+      - name: Compile project
+        run: mvn package
