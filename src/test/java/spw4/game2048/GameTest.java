@@ -1076,7 +1076,7 @@ public class GameTest {
             int[][] board = {
                     { 2,   4,    2,   4},
                     {16,   2, 1024, 128},
-                    { 4, 128, 1024,   0},
+                    {32, 128, 1024,   0},
                     {64,   2,   32,  64}
             };
             gb.setGameBoard(board);
