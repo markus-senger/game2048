@@ -29,10 +29,4 @@ jobs:
     needs: [package]
     steps:      
       - name: Deploy project
-        run:
-          using: 'docker'
-          image: 'Dockerfile'
-          args:
-            - ${{ docker run --rm -d --name tomcat -p 8080:8080 game2048 }}
-        env:
-          target-url: localhost:8080/game2048
+        run: cp ./target/game2048.war /usr/local/tomcat/webapps
