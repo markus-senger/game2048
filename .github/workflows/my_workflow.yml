@@ -30,9 +30,9 @@ jobs:
     steps:      
       - name: Deploy project
         runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ docker run --rm -d --name tomcat -p 8080:8080 game2048 }}
+          using: 'docker'
+          image: 'Dockerfile'
+          args:
+            - ${{ docker run --rm -d --name tomcat -p 8080:8080 game2048 }}
         env:
           target-url: localhost:8080/game2048
