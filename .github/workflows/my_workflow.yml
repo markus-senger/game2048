@@ -1,0 +1,7 @@
+name: Pipeline_2048
+on: [push]
+jobs:
+  build:
+    runs-on: github-runner
+    steps:
+      - run: mvn compile
