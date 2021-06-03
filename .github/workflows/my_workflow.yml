@@ -2,6 +2,6 @@ name: Pipeline_2048
 on: [push]
 jobs:
   build:
-    runs-on: github-runner
+    runs-on: self-hosted
     steps:
       - run: mvn compile
