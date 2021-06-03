@@ -4,4 +4,9 @@ jobs:
   build:
     runs-on: [self-hosted, linux]
     steps:
-      - run: mvn compile
+      -name: Setup Java
+      uses: .m2/repository
+      with:
+        distribution: 'adopt'
+        java-version: 11
+      run: mvn compile
