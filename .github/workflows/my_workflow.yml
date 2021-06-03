@@ -23,10 +23,4 @@ jobs:
     steps:      
       - name: Create project
         run: mvn package
-        
-  deploy:
-    runs-on: self-hosted
-    needs: [package]
-    steps:      
-      - name: Deploy project
-        run: cp ./target/game2048.war /usr/local/tomcat/webapps
+      
