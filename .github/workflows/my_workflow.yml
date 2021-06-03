@@ -29,6 +29,6 @@ jobs:
     needs: [package]
     steps:      
       - name: Deploy project
-        run: mvn tomcat7:run
+        run: docker run --rm -d --name tomcat -p 8080:8080 game2048
         env:
-          target-url: http://localhost:8080/game2048
+          target-url: localhost:8080/game2048
